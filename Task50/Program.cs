@@ -19,14 +19,22 @@ int Input(string output)
 
 int m = Input("m= ");
 int n = Input("n= ");
-
 int[,] array = new int[m, n];
 int number = Input("Введите позицию элемента: ");
 
+if (number / 10 > m || number % 10 > n)
+{
+    Input("Такого числа в массиве нет");
+    return;
+}
+
+FillArray(array);
+PrintArray(array);
+Console.WriteLine();
+Console.WriteLine(array[number/ 10, number % 10]);
 
 
-
-static void FillArray(int[,] arr)
+void FillArray(int[,] arr)
 {
     for (int i = 0; i < arr.GetLength(0); i++)
     {
@@ -49,6 +57,3 @@ void PrintArray(int[,] arr)
         Console.WriteLine();
     }
 }
-
-FillArray(array);
-PrintArray(array);
